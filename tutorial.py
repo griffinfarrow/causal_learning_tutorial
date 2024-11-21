@@ -1,3 +1,7 @@
+"""
+A set of functions supporting the different parts of our causal learning tutorial
+"""
+
 import numpy as np
 import networkx as nx 
 import pandas as pd
