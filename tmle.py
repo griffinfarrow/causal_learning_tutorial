@@ -4,7 +4,7 @@ import numpy as np
 
 
 def targeting_step(dataset, propensity_scores, pred_outcomes, 
-                   treatment_label='A', outcome_label='Y'):
+                   treatment_label='A', outcome_label='Y', show_summary=False):
     """
     Function to carry out the targeting step of TMLE
     """
@@ -21,6 +21,7 @@ def targeting_step(dataset, propensity_scores, pred_outcomes,
     model_epsilon = sm.GLM(dataset[outcome_label], X, family=sm.families.Binomial(), offset=logit_QAW)
     model_epsilon = model_epsilon.fit()
 
-    print(model_epsilon.summary())
+    if (show_summary):
+        print(model_epsilon.summary())
 
     return model_epsilon
