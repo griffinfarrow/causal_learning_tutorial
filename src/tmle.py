@@ -48,7 +48,7 @@ def conf_int(df, corrected_Q1, corrected_Q0, propensity_scores,
 
     infl_curv_val = infl_curve(df, corrected_Q1, corrected_Q0, propensity_scores, treatment_label, outcome_label)
 
-    std_err = np.sqrt(np.var(infl_curve_val)/(df[outcome_label].count()))
+    std_err = np.sqrt(np.var(infl_curv_val)/(df[outcome_label].count()))
 
     tmle_val = corrected_Q1.mean() - corrected_Q0.mean()
 
